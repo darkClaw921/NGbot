@@ -1,0 +1,19 @@
+[Unit]
+Description=NGbot
+After=network.target
+
+[Service]
+User=igor2
+Group=igor2
+
+WorkingDirectory=/home/igor2/NGbot
+Environment="PYTHONPATH=/home/igor2/NGbot"
+ExecStart=/home/igor2/NGbot/.venv/bin/python /home/igor2/NGbot/NGbot.py
+
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+
+# sudo cp /home/igor2/NGbot/NGbot.service /etc/systemd/system/NGbot.service
